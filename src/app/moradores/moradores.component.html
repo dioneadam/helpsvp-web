@@ -14,36 +14,47 @@
               <th scope="col">ID</th>
               <th scope="col">Nome</th>
               <th scope="col">CPF</th>
+              <th scope="col">Data de Nascimento</th>
+              <th scope="col">Contato de Emergência</th>
+              <th scope="col">Data de Entrada</th>
+
               <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
             <ng-container *ngFor="let resident of residents; let i = index;" [attr.data-index]="i">
               <tr *ngIf="resident.id != editingResident.id">
-                  <th scope="row">{{resident.id}}</th>
-                  <td>{{resident.nome}}</td>
+                  <td>{{resident.id}}</td>        
+                  <td>{{resident.nome}}</td>           
                   <td>{{resident.cpf}}</td>
+                  <td>{{resident.dataNascimento}}</td>        
+                  <td>{{resident.contatoEmergencia}}</td>           
+                  <td>{{resident.dataEntrada}}</td>
                   <td><div class="btn-group" role="group" style="width: 100%;">
                     <button type="button" class="btn btn-warning" (click)="startUpdate(i)" [disabled]="adding || editing"><fa-icon [icon]="faEdit" [inverse]="true"></fa-icon></button>
                     <button type="button" class="btn btn-secondary" (click)="deleteResident(i)" [disabled]="adding || editing"><fa-icon [icon]="faTrash"></fa-icon></button>
                   </div></td> 
                 </tr>
               <tr *ngIf="resident.id == editingResident.id">
-                <th scope="row">{{editingMaterial.id}}</th>
                 <td><input [(ngModel)]="editingResident.id" /></td>
                 <td><input [(ngModel)]="editingResident.nome" /></td>
                 <td><input [(ngModel)]="editingResident.cpf" /></td>
+                <td><input [(ngModel)]="editingResident.dataNascimento" /></td>
+                <td><input [(ngModel)]="editingResident.contatoEmergencia" /></td>
+                <td><input [(ngModel)]="editingResident.dataEntrada" /></td>
                 <td><div class="btn-group" role="group" style="width: 100%;">
                     <button type="button" class="btn btn-warning" (click)="updateResident()"><fa-icon [icon]="faSave" [inverse]="true"></fa-icon></button>
                     <button type="button" class="btn btn-secondary" (click)="resetUpdate()"><fa-icon [icon]="faTimesCircle"></fa-icon></button>
                   </div></td>
                 </tr>
             </ng-container>
-            <tr *ngIf="adding">
-                <th scope="row">{{editingMaterial.id}}</th>
-                <td><input [(ngModel)]="editingResident.id" /></td>
+            <tr *ngIf="adding">             
+                <td></td>
                 <td><input [(ngModel)]="editingResident.nome" /></td>
                 <td><input [(ngModel)]="editingResident.cpf" /></td>
+                <td><input [(ngModel)]="editingResident.dataNascimento" /></td>
+                <td><input [(ngModel)]="editingResident.contatoEmergencia" /></td>
+                <td><input [(ngModel)]="editingResident.dataEntrada" /></td>
                 <td><div class="btn-group" role="group" style="width: 100%;">
                     <button type="button" class="btn btn-warning" (click)="saveResident()"><fa-icon [icon]="faSave" [inverse]="true"></fa-icon></button>
                     <button type="button" class="btn btn-secondary" (click)="resetAdd()"><fa-icon [icon]="faTimesCircle"></fa-icon></button>
@@ -52,7 +63,7 @@
            </tbody>
         </table>
         <div *ngIf="(!residents || residents.length == 0) && !adding">
-            <p class="text-center">Ainda não existem moradores, tente adicionar um :)</p>
+            <p class="text-center">Ainda não existem medicamentos, tente adicionar um :)</p>
         </div>
   </div>
 

@@ -11,7 +11,6 @@
       <table class="table table-striped">
           <thead>
             <tr>
-              <!--<th scope="col">ID</th>-->
               <th scope="col">Nome Comercial</th>
               <th scope="col">Nome Quimico</th>
               <th scope="col">Quantidade Minima</th>
@@ -24,7 +23,6 @@
           <tbody>
             <ng-container *ngFor="let resident of residents; let i = index;" [attr.data-index]="i">
               <tr *ngIf="resident.id != editingResident.id">
-                  <!--<th scope="row">{{resident.id}}</th>-->
                   <td>{{resident.nome_comercial}}</td>           
                   <td>{{resident.nome_quimico}}</td>
                   <td>{{resident.quantidade_minima}}</td>

@@ -56,6 +56,9 @@ export class MoradorService {
   }
 
   saveResident (resident : Morador) {
+    if (resident.id == '') {
+        resident.id = null
+    }
     return this.http.post<Morador>(this.base_url, resident)
       .pipe(
         tap(person => {

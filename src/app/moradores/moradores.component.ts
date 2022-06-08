@@ -27,7 +27,7 @@ export class MoradoresComponent implements OnInit {
   }
 
   resetUpdate() {
-    this.editingResident = {nome : '', cpf : '', id : ''};
+    this.editingResident = {nome : '', cpf : '', dataNascimento: '', contatoEmergencia: '', dataEntrada: '', id : ''};
     this.editing = false;
     this.editingIndex = -1;
   }
