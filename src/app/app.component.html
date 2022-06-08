@@ -1,0 +1,19 @@
+
+<!-- Just an image -->
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="../assets/images/logo.png" width="120" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a *ngFor="let link of links" class="nav-item nav-link active" href="{{link.link}}">{{link.label}}</a>
+        </div>
+    </div>
+</nav>
+<div class="container main">
+    <router-outlet></router-outlet>
+    <app-messages></app-messages>
+</div>
