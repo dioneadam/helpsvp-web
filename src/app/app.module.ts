@@ -20,15 +20,21 @@ import { MoradorService } from './morador.service';
 import { MoradoresComponent } from './moradores/moradores.component';
 import { MoradorRowComponent } from './moradores/material-row/morador-row.component';
 
+import { MedicamentoService } from './medicamento.service';
+import { MedicamentosComponent } from './medicamentos/medicamentos.component';
+import { MedicamentoRowComponent } from './medicamentos/material-row/medicamento-row.component';
+
 registerLocaleData(localePTBR);
 
 @NgModule({
   declarations: [
     AppComponent,
     MoradoresComponent,
+    MedicamentosComponent,
     MessagesComponent,
     MessageToast,
-    MoradorRowComponent
+    MoradorRowComponent,
+    MedicamentoRowComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +55,7 @@ registerLocaleData(localePTBR);
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },
     MoradorService,
+    MedicamentoService,
     fakeBackendProvider
   ],
   entryComponents : [

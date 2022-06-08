@@ -1,0 +1,72 @@
+<div>
+  <div>
+      <div class="float-left">
+        <h3>Medicamentos</h3>
+      </div>
+      <div class="float-right">
+        <button type="button" class="btn btn-default" (click)="initAddResident()" [disabled]="adding || editing"><fa-icon [icon]="faPlus"></fa-icon></button>
+      </div>
+    </div>
+  <div>
+      <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nome Comercial</th>
+              <th scope="col">Nome Quimico</th>
+              <th scope="col">Quantidade Minima</th>
+              <th scope="col">Unidade de Medida</th>
+              <th scope="col">Tipo de Embalagem</th>
+
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let resident of residents; let i = index;" [attr.data-index]="i">
+              <tr *ngIf="resident.id != editingResident.id">
+                  <th scope="row">{{resident.id}}</th>
+                  <td>{{resident.nome_comercial}}</td>           
+                  <td>{{resident.nome_quimico}}</td>
+                  <td>{{resident.quantidade_minima}}</td>
+                  <td>{{resident.unidade_de_medida}}</td>
+                  <td>{{resident.tipo_embalagem}}</td>
+                  <td><div class="btn-group" role="group" style="width: 100%;">
+                    <button type="button" class="btn btn-warning" (click)="startUpdate(i)" [disabled]="adding || editing"><fa-icon [icon]="faEdit" [inverse]="true"></fa-icon></button>
+                    <button type="button" class="btn btn-secondary" (click)="deleteResident(i)" [disabled]="adding || editing"><fa-icon [icon]="faTrash"></fa-icon></button>
+                  </div></td> 
+                </tr>
+              <tr *ngIf="resident.id == editingResident.id">
+                <th scope="row">{{editingMaterial.id}}</th>
+                <td><input [(ngModel)]="editingResident.id" /></td>
+                <td><input [(ngModel)]="editingResident.nome_comercial" /></td>
+                <td><input [(ngModel)]="editingResident.nome_quimico" /></td>
+                <td><input [(ngModel)]="editingResident.quantidade_minima" /></td>
+                <td><input [(ngModel)]="editingResident.unidade_de_medida" /></td>
+                <td><input [(ngModel)]="editingResident.tipo_embalagem" /></td>
+                <td><div class="btn-group" role="group" style="width: 100%;">
+                    <button type="button" class="btn btn-warning" (click)="updateResident()"><fa-icon [icon]="faSave" [inverse]="true"></fa-icon></button>
+                    <button type="button" class="btn btn-secondary" (click)="resetUpdate()"><fa-icon [icon]="faTimesCircle"></fa-icon></button>
+                  </div></td>
+                </tr>
+            </ng-container>
+            <tr *ngIf="adding">
+                <th scope="row">{{editingMaterial.id}}</th>
+                <td><input [(ngModel)]="editingResident.id" /></td>              
+                <td><input [(ngModel)]="editingResident.nome_comercial" /></td>
+                <td><input [(ngModel)]="editingResident.nome_quimico" /></td>
+                <td><input [(ngModel)]="editingResident.quantidade_minima" /></td>
+                <td><input [(ngModel)]="editingResident.unidade_de_medida" /></td>
+                <td><input [(ngModel)]="editingResident.tipo_embalagem" /></td>
+                <td><div class="btn-group" role="group" style="width: 100%;">
+                    <button type="button" class="btn btn-warning" (click)="saveResident()"><fa-icon [icon]="faSave" [inverse]="true"></fa-icon></button>
+                    <button type="button" class="btn btn-secondary" (click)="resetAdd()"><fa-icon [icon]="faTimesCircle"></fa-icon></button>
+                  </div></td>
+            </tr>
+           </tbody>
+        </table>
+        <div *ngIf="(!residents || residents.length == 0) && !adding">
+            <p class="text-center">Ainda não existem medicamentos, tente adicionar um :)</p>
+        </div>
+  </div>
+
+</div>
