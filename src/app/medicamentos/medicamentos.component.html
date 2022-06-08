@@ -11,7 +11,7 @@
       <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">ID</th>
+              <!--<th scope="col">ID</th>-->
               <th scope="col">Nome Comercial</th>
               <th scope="col">Nome Quimico</th>
               <th scope="col">Quantidade Minima</th>
@@ -24,7 +24,7 @@
           <tbody>
             <ng-container *ngFor="let resident of residents; let i = index;" [attr.data-index]="i">
               <tr *ngIf="resident.id != editingResident.id">
-                  <th scope="row">{{resident.id}}</th>
+                  <!--<th scope="row">{{resident.id}}</th>-->
                   <td>{{resident.nome_comercial}}</td>           
                   <td>{{resident.nome_quimico}}</td>
                   <td>{{resident.quantidade_minima}}</td>
@@ -36,8 +36,8 @@
                   </div></td> 
                 </tr>
               <tr *ngIf="resident.id == editingResident.id">
-                <th scope="row">{{editingMaterial.id}}</th>
-                <td><input [(ngModel)]="editingResident.id" /></td>
+                <!--<th scope="row">{{editingMaterial.id}}</th>-->
+                <!--<td><input [(ngModel)]="editingResident.id" /></td>-->
                 <td><input [(ngModel)]="editingResident.nome_comercial" /></td>
                 <td><input [(ngModel)]="editingResident.nome_quimico" /></td>
                 <td><input [(ngModel)]="editingResident.quantidade_minima" /></td>
@@ -50,8 +50,8 @@
                 </tr>
             </ng-container>
             <tr *ngIf="adding">
-                <th scope="row">{{editingMaterial.id}}</th>
-                <td><input [(ngModel)]="editingResident.id" /></td>              
+                <!--<th scope="row">{{editingMaterial.id}}</th>-->
+                <!--<td><input [(ngModel)]="editingResident.id" /></td>-->              
                 <td><input [(ngModel)]="editingResident.nome_comercial" /></td>
                 <td><input [(ngModel)]="editingResident.nome_quimico" /></td>
                 <td><input [(ngModel)]="editingResident.quantidade_minima" /></td>
